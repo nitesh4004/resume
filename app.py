@@ -13,20 +13,20 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# --- CSS STYLING WITH OSWALD FONT ---
+# --- CSS STYLING WITH PLAYFAIR DISPLAY FONT ---
 st.markdown("""
 <style>
-    /* Import Oswald Font from Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap');
+    /* Import Playfair Display Font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
     /* Apply Font to Whole App */
     html, body, [class*="css"] {
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Playfair Display', serif;
     }
     
     /* Header Styling - Bolder and Spaced */
     h1, h2, h3 {
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Playfair Display', serif;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -34,23 +34,23 @@ st.markdown("""
     
     /* Body Text Styling */
     p, div, li, .stMarkdown {
-        font-family: 'Oswald', sans-serif;
-        font-weight: 300;
+        font-family: 'Playfair Display', serif;
+        font-weight: 400; /* Increased slightly for readability on serif */
         font-size: 1.1rem;
     }
 
     /* Button Styling */
     .stButton button {
         width: 100%;
-        font-family: 'Oswald', sans-serif;
-        font-weight: 500;
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
         letter-spacing: 1px;
         text-transform: uppercase;
     }
     
     /* Sidebar Styling */
     [data-testid="stSidebar"] {
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Playfair Display', serif;
     }
 
     /* Reduce padding at top */
@@ -95,22 +95,22 @@ with st.sidebar:
         styles={
             "container": {
                 "padding": "0!important", 
-                "background-color": "#262730" # COLOR CHANGE: Dark Charcoal Background
+                "background-color": "#262730" # Dark Charcoal Background
             },
             "icon": {
-                "color": "#4DB6AC", # Lighter Teal for better contrast on dark bg
+                "color": "#4DB6AC", # Lighter Teal for better contrast
                 "font-size": "18px"
             }, 
             "nav-link": {
-                "font-family": "Oswald, sans-serif", 
+                "font-family": "Playfair Display, serif", # UPDATED FONT
                 "font-size": "16px", 
                 "text-align": "left", 
                 "margin":"0px", 
-                "color": "white", # Forced White text for visibility
-                "--hover-color": "#383940" # Slightly lighter dark grey on hover
+                "color": "white", 
+                "--hover-color": "#383940" 
             },
             "nav-link-selected": {
-                "background-color": "#00796B" # Signature Teal for selected item
+                "background-color": "#00796B" # Signature Teal
             }, 
         }
     )
@@ -139,7 +139,7 @@ if selected == "Home":
         Currently working as a **GIS Analyst** at SWANSAT, focusing on SAR-based flood analytics.
         """)
         
-        # Download Resume Button
+        # Download Resume Button logic
         file_data = None
         try:
             with open("Nitesh_Kumar_Resume.pdf", "rb") as file:
@@ -148,6 +148,7 @@ if selected == "Home":
             file_name = "Nitesh_Kumar_Resume.pdf"
             file_mime = "application/pdf"
         except FileNotFoundError:
+            # Fallback if resume not found
             with open("app.py", "rb") as file:
                 file_data = file.read()
             btn_label = "📄 DOWNLOAD SOURCE CODE (DEMO)"
@@ -330,17 +331,14 @@ if selected == "Contact":
         st.markdown("💼 **LinkedIn:** [linkedin.com/in/nitesh4004](https://linkedin.com/in/nitesh4004)")
         
     with col2:
-        # Simple contact form using FormSubmit
-        # THEME CHANGE: Button color updated to match Teal theme
+        # Updated Font in the HTML Form
         contact_form = """
         <form action="https://formsubmit.co/nitesh.gulzar@gmail.com" method="POST">
              <input type="hidden" name="_captcha" value="false">
-             <input type="text" name="name" placeholder="YOUR NAME" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Oswald', sans-serif;">
-             <input type="email" name="email" placeholder="YOUR EMAIL" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Oswald', sans-serif;">
-             <textarea name="message" placeholder="YOUR MESSAGE" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; rows: 5; font-family: 'Oswald', sans-serif;"></textarea>
-             <button type="submit" style="background-color: #00796B; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 1px;">SEND MESSAGE</button>
+             <input type="text" name="name" placeholder="YOUR NAME" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Playfair Display', serif;">
+             <input type="email" name="email" placeholder="YOUR EMAIL" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Playfair Display', serif;">
+             <textarea name="message" placeholder="YOUR MESSAGE" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; rows: 5; font-family: 'Playfair Display', serif;"></textarea>
+             <button type="submit" style="background-color: #00796B; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: 1px;">SEND MESSAGE</button>
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
-
-
