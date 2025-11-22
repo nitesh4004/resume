@@ -63,7 +63,7 @@ st.markdown("""
     .timeline-dot {
         height: 15px;
         width: 15px;
-        background-color: #00796B; /* THEME CHANGE: Teal */
+        background-color: #00796B; /* Teal */
         border-radius: 50%;
         display: inline-block;
     }
@@ -71,7 +71,7 @@ st.markdown("""
     /* Profile Image styling */
     img {
         border-radius: 50%; 
-        border: 3px solid #00796B; /* THEME CHANGE: Teal border */
+        border: 3px solid #00796B; /* Teal border */
     }
 </style>
 """, unsafe_allow_html=True)
@@ -85,7 +85,7 @@ with st.sidebar:
     st.markdown("📍 *Mumbai, India*")
     st.caption("Geospatial Data Scientist | Flood Modeller | GEE Developer")
     
-    # Navigation Menu - COLOR UPDATED
+    # Navigation Menu - COLOR UPDATED to Dark Theme
     selected = option_menu(
         menu_title=None,
         options=["Home", "Experience", "Projects", "Skills", "Education", "Contact"],
@@ -93,10 +93,25 @@ with st.sidebar:
         menu_icon="cast",
         default_index=0,
         styles={
-            "container": {"padding": "0!important", "background-color": "#f8f9fa"}, # Clean off-white background
-            "icon": {"color": "#00796B", "font-size": "18px"}, # THEME CHANGE: Teal Icons
-            "nav-link": {"font-family": "Oswald, sans-serif", "font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#e9ecef"},
-            "nav-link-selected": {"background-color": "#00796B"}, # THEME CHANGE: Teal Selected Background
+            "container": {
+                "padding": "0!important", 
+                "background-color": "#262730" # COLOR CHANGE: Dark Charcoal Background
+            },
+            "icon": {
+                "color": "#4DB6AC", # Lighter Teal for better contrast on dark bg
+                "font-size": "18px"
+            }, 
+            "nav-link": {
+                "font-family": "Oswald, sans-serif", 
+                "font-size": "16px", 
+                "text-align": "left", 
+                "margin":"0px", 
+                "color": "white", # Forced White text for visibility
+                "--hover-color": "#383940" # Slightly lighter dark grey on hover
+            },
+            "nav-link-selected": {
+                "background-color": "#00796B" # Signature Teal for selected item
+            }, 
         }
     )
     
@@ -114,7 +129,7 @@ if selected == "Home":
         st.title("HELLO, I'M NITESH! 👋")
         st.subheader("GEOSPATIAL DATA SCIENTIST & EARTH OBSERVATION SPECIALIST")
         st.write("""
-        As a GIS professional at Swan Corp, I focus on developing advanced methodologies for environmental change detection, agrotechnology applications, and landslide monitoring. My work includes leveraging GIS tools and Synthetic Aperture Radar (SAR) data to enhance crop yield predictions and improve early warning systems for risk assessment.  With an MTech in ESSE (Remote Sensing & GIS) from the Indian Institute of Technology, Guwahati (2024) and a BTech in Civil Engineering from Rajkiya Engineering College Ambedkar Nagar, I combine technical expertise in GIS, deep learning, and crop monitoring to address environmental challenges. My goal is to contribute to impactful projects that harness data to promote sustainable environmental solutions. 
+        I bridge the gap between **Civil Engineering** and **Earth System Science**, leveraging satellite data to solve real-world problems. 
         
         My expertise lies in:
         * 🌊 **Hydrodynamic Flood Modelling**
