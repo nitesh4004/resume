@@ -13,35 +13,56 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# --- CSS STYLING ---
+# --- CSS STYLING WITH OSWALD FONT ---
 st.markdown("""
 <style>
+    /* Import Oswald Font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap');
+
+    /* Apply Font to Whole App */
+    html, body, [class*="css"] {
+        font-family: 'Oswald', sans-serif;
+    }
+    
+    /* Header Styling - Bolder and Spaced */
+    h1, h2, h3 {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase; /* Optional: makes headers uppercase for impact */
+    }
+    
+    /* Body Text Styling - Lighter weight for readability */
+    p, div, li, .stMarkdown {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 300;
+        font-size: 1.1rem;
+    }
+
+    /* Button Styling */
+    .stButton button {
+        width: 100%;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        font-family: 'Oswald', sans-serif;
+    }
+
     /* Reduce padding at top */
     .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
-    /* Custom fonts for headers */
-    h1, h2, h3 {
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 600;
-    }
-    /* Style the timeline dots */
-    .timeline-dot {
-        height: 15px;
-        width: 15px;
-        background-color: #FF4B4B;
-        border-radius: 50%;
-        display: inline-block;
-    }
+    
     /* Profile Image styling */
     img {
         border-radius: 50%; 
         border: 3px solid #FF4B4B;
-    }
-    /* Button styling */
-    .stButton button {
-        width: 100%;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -55,7 +76,7 @@ with st.sidebar:
     st.markdown("📍 *Mumbai, India*")
     st.caption("Geospatial Data Scientist | Flood Modeller | GEE Developer")
     
-    # Navigation
+    # Navigation Menu
     selected = option_menu(
         menu_title=None,
         options=["Home", "Experience", "Projects", "Skills", "Education", "Contact"],
@@ -65,7 +86,7 @@ with st.sidebar:
         styles={
             "container": {"padding": "0!important", "background-color": "#fafafa"},
             "icon": {"color": "orange", "font-size": "18px"}, 
-            "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+            "nav-link": {"font-family": "Oswald, sans-serif", "font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
             "nav-link-selected": {"background-color": "#FF4B4B"},
         }
     )
@@ -81,8 +102,8 @@ if selected == "Home":
     col1, col2 = st.columns([2, 1])
     
     with col1:
-        st.title("Hello, I'm Nitesh! 👋")
-        st.subheader("Geospatial Data Scientist & Earth Observation Specialist")
+        st.title("HELLO, I'M NITESH! 👋")
+        st.subheader("GEOSPATIAL DATA SCIENTIST & EARTH OBSERVATION SPECIALIST")
         st.write("""
         I bridge the gap between **Civil Engineering** and **Earth System Science**, leveraging satellite data to solve real-world problems. 
         
@@ -94,17 +115,30 @@ if selected == "Home":
         Currently working as a **GIS Analyst** at SWANSAT, focusing on SAR-based flood analytics.
         """)
         
-        # Download Resume Button (You would need to put your actual PDF in the folder)
-        with open("app.py", "rb") as file: # Placeholder: using app.py as dummy file
-            st.download_button(
-                label="📄 Download Resume",
-                data=file,
-                file_name="Nitesh_Kumar_Resume.pdf",
-                mime="application/pdf",
-            )
+        # Download Resume Button
+        # NOTE: Make sure you have a file named 'Nitesh_Kumar_Resume.pdf' in the same folder
+        # If not, this placeholder reads 'app.py' just to show the button working.
+        try:
+            with open("Nitesh_Kumar_Resume.pdf", "rb") as file:
+                btn_label = "📄 DOWNLOAD RESUME"
+                file_data = file
+                file_mime = "application/pdf"
+        except FileNotFoundError:
+            # Fallback if PDF is not found
+            with open("app.py", "rb") as file:
+                btn_label = "📄 DOWNLOAD SOURCE CODE (DEMO)"
+                file_data = file
+                file_mime = "text/plain"
+
+        st.download_button(
+            label=btn_label,
+            data=file_data,
+            file_name="Nitesh_Kumar_Resume.pdf",
+            mime=file_mime,
+        )
 
     with col2:
-        # A simple interactive map showing your journey
+        # Interactive Folium Map
         m = folium.Map(location=[23.5937, 78.9629], zoom_start=4, tiles="CartoDB positron")
         
         # IIT Guwahati
@@ -135,9 +169,9 @@ if selected == "Home":
 
 # --- SECTION: EXPERIENCE ---
 if selected == "Experience":
-    st.title("💼 Professional Experience")
+    st.title("💼 PROFESSIONAL EXPERIENCE")
     
-    st.markdown("### 🛰️ GIS Analyst")
+    st.markdown("### 🛰️ GIS ANALYST")
     st.caption("SWANSAT (OPC) Pvt Ltd. | Mumbai, India | June 2024 -- Present")
     st.markdown("""
     * **Architected flood workflows:** Used Sentinel-1 SAR & SRTM DEM in Google Earth Engine (GEE).
@@ -146,7 +180,7 @@ if selected == "Experience":
     """)
     st.divider()
     
-    st.markdown("### 🎓 Teaching Assistant")
+    st.markdown("### 🎓 TEACHING ASSISTANT")
     st.caption("IIT Guwahati | Assam, India | Jan 2023 -- May 2024")
     st.markdown("""
     * Assisted postgraduate courses in **GIS and Hydrological Modelling**.
@@ -155,11 +189,11 @@ if selected == "Experience":
 
 # --- SECTION: PROJECTS ---
 if selected == "Projects":
-    st.title("🚀 Key Projects")
+    st.title("🚀 KEY PROJECTS")
     
     # Featured Project
     with st.container():
-        st.subheader("🌟 Geospatial Ni30: Real-Time Analytics Engine")
+        st.subheader("🌟 GEOSPATIAL Ni30: REAL-TIME ANALYTICS ENGINE")
         col1, col2 = st.columns([3, 1])
         with col1:
             st.write("**Tech Stack:** Python, Streamlit, GEE API")
@@ -170,7 +204,7 @@ if selected == "Projects":
             * Automated GeoTIFF export pipelines.
             """)
         with col2:
-            st.link_button("Launch App 🚀", "https://niteshgulzar.streamlit.app/")
+            st.link_button("LAUNCH APP 🚀", "https://niteshgulzar.streamlit.app/")
             
     st.divider()
     
@@ -209,26 +243,26 @@ if selected == "Projects":
 
 # --- SECTION: SKILLS ---
 if selected == "Skills":
-    st.title("🛠️ Technical Arsenal")
+    st.title("🛠️ TECHNICAL ARSENAL")
     
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("Geospatial & Remote Sensing")
+        st.subheader("GEOSPATIAL & REMOTE SENSING")
         st.markdown("""
         - **Data:** Sentinel-1/2, Landsat, DEM, Thermal, Hyperspectral (PRISMA)
         - **Analysis:** Google Earth Engine (JS/Python), ArcPy, GDAL/Rasterio
         - **Software:** ArcGIS Pro, QGIS, ENVI, SNAP
         """)
         
-        st.subheader("Data Science & ML")
+        st.subheader("DATA SCIENCE & ML")
         st.markdown("""
         - **Algorithms:** Random Forest, SVM, CNNs, Regression
         - **Libraries:** Scikit-learn, Pandas, NumPy, Matplotlib
         """)
 
     with col2:
-        st.subheader("Programming & Web")
+        st.subheader("PROGRAMMING & WEB")
         st.code("""
 # Languages
 Python = "Advanced"
@@ -239,30 +273,30 @@ SQL = "Intermediate"
 Streamlit = "Advanced"
         """, language="python")
         
-        st.subheader("Soft Skills")
+        st.subheader("SOFT SKILLS")
         st.write("✅ Technical Documentation")
         st.write("✅ Executive Reporting")
         st.write("✅ Research & Validation")
 
 # --- SECTION: EDUCATION ---
 if selected == "Education":
-    st.title("🎓 Education")
+    st.title("🎓 EDUCATION")
     
-    st.subheader("M.Tech in Earth System Science and Engineering")
+    st.subheader("M.TECH IN EARTH SYSTEM SCIENCE AND ENGINEERING")
     st.write("**Indian Institute of Technology Guwahati** | 2022 -- 2024")
     st.write("📍 *Assam, India*")
     st.info("CGPA: **8.9/10**")
     
     st.markdown("---")
     
-    st.subheader("B.Tech in Civil Engineering")
+    st.subheader("B.TECH IN CIVIL ENGINEERING")
     st.write("**Rajkiya Engineering College** | 2018 -- 2022")
     st.write("📍 *Ambedkar Nagar, U.P.*")
     st.info("CGPA: **7.93/10**")
 
 # --- SECTION: CONTACT ---
 if selected == "Contact":
-    st.title("📬 Get In Touch")
+    st.title("📬 GET IN TOUCH")
     
     col1, col2 = st.columns(2)
     
@@ -274,13 +308,14 @@ if selected == "Contact":
         
     with col2:
         # Simple contact form using FormSubmit (No backend required)
+        # Styling injected inline to ensure font consistency within the HTML form
         contact_form = """
         <form action="https://formsubmit.co/nitesh.gulzar@gmail.com" method="POST">
              <input type="hidden" name="_captcha" value="false">
-             <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-             <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-             <textarea name="message" placeholder="Your Message" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; rows: 5;"></textarea>
-             <button type="submit" style="background-color: #FF4B4B; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Send Message</button>
+             <input type="text" name="name" placeholder="YOUR NAME" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Oswald', sans-serif;">
+             <input type="email" name="email" placeholder="YOUR EMAIL" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Oswald', sans-serif;">
+             <textarea name="message" placeholder="YOUR MESSAGE" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; rows: 5; font-family: 'Oswald', sans-serif;"></textarea>
+             <button type="submit" style="background-color: #FF4B4B; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 1px;">SEND MESSAGE</button>
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
