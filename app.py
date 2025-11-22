@@ -327,7 +327,6 @@ if selected == "Contact":
     with col1:
         st.write("Feel free to reach out for collaborations on GIS, Remote Sensing, or Machine Learning projects.")
         st.markdown("📧 **Email:** [nitesh.gulzar@gmail.com](mailto:nitesh.gulzar@gmail.com)")
-        st.markdown("📱 **Phone:** +91 8795969051")
         st.markdown("💼 **LinkedIn:** [linkedin.com/in/nitesh4004](https://linkedin.com/in/nitesh4004)")
         
     with col2:
