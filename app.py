@@ -83,7 +83,7 @@ with st.sidebar:
     
     st.markdown("## Nitesh Kumar")
     st.markdown("📍 *Mumbai, India*")
-    st.caption("Geospatial Data Scientist | Flood Modeller | GEE Developer")
+    st.caption("Geospatial Data Scientist | Civil Engineering")
     
     # Navigation Menu - COLOR UPDATED to Dark Theme
     selected = option_menu(
@@ -129,7 +129,7 @@ if selected == "Home":
         st.title("HELLO, I'M NITESH! 👋")
         st.subheader("GEOSPATIAL DATA SCIENTIST & EARTH OBSERVATION SPECIALIST")
         st.write("""
-        I bridge the gap between **Civil Engineering** and **Earth System Science**, leveraging satellite data to solve real-world problems. 
+        As a GIS professional at Swan Corp, I focus on developing advanced methodologies for environmental change detection, agrotechnology applications, and landslide monitoring. My work includes leveraging GIS tools and Synthetic Aperture Radar (SAR) data to enhance crop yield predictions and improve early warning systems for risk assessment.  With an MTech in ESSE (Remote Sensing & GIS) from the IIT Guwahati (2024) and a BTech in Civil Engineering from REC Ambedkar Nagar, I combine technical expertise in GIS, deep learning, and crop monitoring to address environmental challenges. My goal is to contribute to impactful projects that harness data to promote sustainable environmental solutions. 
         
         My expertise lies in:
         * 🌊 **Hydrodynamic Flood Modelling**
@@ -343,3 +343,4 @@ if selected == "Contact":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
+
