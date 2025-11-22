@@ -116,24 +116,26 @@ if selected == "Home":
         """)
         
         # Download Resume Button
-        # NOTE: Make sure you have a file named 'Nitesh_Kumar_Resume.pdf' in the same folder
-        # If not, this placeholder reads 'app.py' just to show the button working.
+        # FIX: Read file content into memory immediately
+        file_data = None
         try:
             with open("Nitesh_Kumar_Resume.pdf", "rb") as file:
-                btn_label = "📄 DOWNLOAD RESUME"
-                file_data = file
-                file_mime = "application/pdf"
+                file_data = file.read()
+            btn_label = "📄 DOWNLOAD RESUME"
+            file_name = "Nitesh_Kumar_Resume.pdf"
+            file_mime = "application/pdf"
         except FileNotFoundError:
             # Fallback if PDF is not found
             with open("app.py", "rb") as file:
-                btn_label = "📄 DOWNLOAD SOURCE CODE (DEMO)"
-                file_data = file
-                file_mime = "text/plain"
+                file_data = file.read()
+            btn_label = "📄 DOWNLOAD SOURCE CODE (DEMO)"
+            file_name = "app.py"
+            file_mime = "text/plain"
 
         st.download_button(
             label=btn_label,
             data=file_data,
-            file_name="Nitesh_Kumar_Resume.pdf",
+            file_name=file_name,
             mime=file_mime,
         )
 
