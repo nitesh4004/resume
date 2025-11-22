@@ -29,10 +29,10 @@ st.markdown("""
         font-family: 'Oswald', sans-serif;
         font-weight: 700;
         letter-spacing: 1px;
-        text-transform: uppercase; /* Optional: makes headers uppercase for impact */
+        text-transform: uppercase;
     }
     
-    /* Body Text Styling - Lighter weight for readability */
+    /* Body Text Styling */
     p, div, li, .stMarkdown {
         font-family: 'Oswald', sans-serif;
         font-weight: 300;
@@ -59,24 +59,33 @@ st.markdown("""
         padding-bottom: 2rem;
     }
     
+    /* Timeline dots (custom class if used later) */
+    .timeline-dot {
+        height: 15px;
+        width: 15px;
+        background-color: #00796B; /* THEME CHANGE: Teal */
+        border-radius: 50%;
+        display: inline-block;
+    }
+    
     /* Profile Image styling */
     img {
         border-radius: 50%; 
-        border: 3px solid #FF4B4B;
+        border: 3px solid #00796B; /* THEME CHANGE: Teal border */
     }
 </style>
 """, unsafe_allow_html=True)
 
 # --- SIDEBAR ---
 with st.sidebar:
-    # Placeholder for profile image - Replace 'profile.jpg' with your actual file if available
+    # Placeholder for profile image
     # st.image("profile.jpg", width=150) 
     
     st.markdown("## Nitesh Kumar")
     st.markdown("📍 *Mumbai, India*")
     st.caption("Geospatial Data Scientist | Flood Modeller | GEE Developer")
     
-    # Navigation Menu
+    # Navigation Menu - COLOR UPDATED
     selected = option_menu(
         menu_title=None,
         options=["Home", "Experience", "Projects", "Skills", "Education", "Contact"],
@@ -84,10 +93,10 @@ with st.sidebar:
         menu_icon="cast",
         default_index=0,
         styles={
-            "container": {"padding": "0!important", "background-color": "#fafafa"},
-            "icon": {"color": "orange", "font-size": "18px"}, 
-            "nav-link": {"font-family": "Oswald, sans-serif", "font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-            "nav-link-selected": {"background-color": "#FF4B4B"},
+            "container": {"padding": "0!important", "background-color": "#f8f9fa"}, # Clean off-white background
+            "icon": {"color": "#00796B", "font-size": "18px"}, # THEME CHANGE: Teal Icons
+            "nav-link": {"font-family": "Oswald, sans-serif", "font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#e9ecef"},
+            "nav-link-selected": {"background-color": "#00796B"}, # THEME CHANGE: Teal Selected Background
         }
     )
     
@@ -105,7 +114,7 @@ if selected == "Home":
         st.title("HELLO, I'M NITESH! 👋")
         st.subheader("GEOSPATIAL DATA SCIENTIST & EARTH OBSERVATION SPECIALIST")
         st.write("""
-        I bridge the gap between **Civil Engineering** and **Earth System Science**, leveraging satellite data to solve real-world problems. 
+        As a GIS professional at Swan Corp, I focus on developing advanced methodologies for environmental change detection, agrotechnology applications, and landslide monitoring. My work includes leveraging GIS tools and Synthetic Aperture Radar (SAR) data to enhance crop yield predictions and improve early warning systems for risk assessment.  With an MTech in ESSE (Remote Sensing & GIS) from the Indian Institute of Technology, Guwahati (2024) and a BTech in Civil Engineering from Rajkiya Engineering College Ambedkar Nagar, I combine technical expertise in GIS, deep learning, and crop monitoring to address environmental challenges. My goal is to contribute to impactful projects that harness data to promote sustainable environmental solutions. 
         
         My expertise lies in:
         * 🌊 **Hydrodynamic Flood Modelling**
@@ -116,7 +125,6 @@ if selected == "Home":
         """)
         
         # Download Resume Button
-        # FIX: Read file content into memory immediately
         file_data = None
         try:
             with open("Nitesh_Kumar_Resume.pdf", "rb") as file:
@@ -125,7 +133,6 @@ if selected == "Home":
             file_name = "Nitesh_Kumar_Resume.pdf"
             file_mime = "application/pdf"
         except FileNotFoundError:
-            # Fallback if PDF is not found
             with open("app.py", "rb") as file:
                 file_data = file.read()
             btn_label = "📄 DOWNLOAD SOURCE CODE (DEMO)"
@@ -309,15 +316,15 @@ if selected == "Contact":
         st.markdown("💼 **LinkedIn:** [linkedin.com/in/nitesh4004](https://linkedin.com/in/nitesh4004)")
         
     with col2:
-        # Simple contact form using FormSubmit (No backend required)
-        # Styling injected inline to ensure font consistency within the HTML form
+        # Simple contact form using FormSubmit
+        # THEME CHANGE: Button color updated to match Teal theme
         contact_form = """
         <form action="https://formsubmit.co/nitesh.gulzar@gmail.com" method="POST">
              <input type="hidden" name="_captcha" value="false">
              <input type="text" name="name" placeholder="YOUR NAME" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Oswald', sans-serif;">
              <input type="email" name="email" placeholder="YOUR EMAIL" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Oswald', sans-serif;">
              <textarea name="message" placeholder="YOUR MESSAGE" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; rows: 5; font-family: 'Oswald', sans-serif;"></textarea>
-             <button type="submit" style="background-color: #FF4B4B; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 1px;">SEND MESSAGE</button>
+             <button type="submit" style="background-color: #00796B; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: 1px;">SEND MESSAGE</button>
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
