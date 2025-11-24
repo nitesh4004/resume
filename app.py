@@ -13,36 +13,33 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# --- CSS STYLING WITH PLAYFAIR DISPLAY FONT ---
+# --- CSS STYLING WITH HELVETICA FONT ---
 st.markdown("""
 <style>
-    /* Import Playfair Display Font from Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-
     /* Apply Font to Whole App */
     html, body, [class*="css"] {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Helvetica', 'Arial', sans-serif;
     }
     
     /* Header Styling - Bolder and Spaced */
     h1, h2, h3 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Helvetica', 'Arial', sans-serif;
         font-weight: 700;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
     }
     
     /* Body Text Styling */
     p, div, li, .stMarkdown {
-        font-family: 'Playfair Display', serif;
-        font-weight: 400; /* Increased slightly for readability on serif */
-        font-size: 1.1rem;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-weight: 400;
+        font-size: 1.05rem; /* Adjusted slightly for sans-serif */
     }
 
     /* Button Styling */
     .stButton button {
         width: 100%;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Helvetica', 'Arial', sans-serif;
         font-weight: 600;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -50,7 +47,7 @@ st.markdown("""
     
     /* Sidebar Styling */
     [data-testid="stSidebar"] {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Helvetica', 'Arial', sans-serif;
     }
 
     /* Reduce padding at top */
@@ -102,7 +99,7 @@ with st.sidebar:
                 "font-size": "18px"
             }, 
             "nav-link": {
-                "font-family": "Playfair Display, serif", # UPDATED FONT
+                "font-family": "Helvetica, Arial, sans-serif", # UPDATED FONT
                 "font-size": "16px", 
                 "text-align": "left", 
                 "margin":"0px", 
@@ -331,14 +328,14 @@ if selected == "Contact":
         st.markdown("💼 **LinkedIn:** [linkedin.com/in/nitesh4004](https://linkedin.com/in/nitesh4004)")
         
     with col2:
-        # Updated Font in the HTML Form
+        # Updated Font in the HTML Form to Helvetica
         contact_form = """
         <form action="https://formsubmit.co/nitesh.gulzar@gmail.com" method="POST">
              <input type="hidden" name="_captcha" value="false">
-             <input type="text" name="name" placeholder="YOUR NAME" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Playfair Display', serif;">
-             <input type="email" name="email" placeholder="YOUR EMAIL" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Playfair Display', serif;">
-             <textarea name="message" placeholder="YOUR MESSAGE" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; rows: 5; font-family: 'Playfair Display', serif;"></textarea>
-             <button type="submit" style="background-color: #00796B; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: 1px;">SEND MESSAGE</button>
+             <input type="text" name="name" placeholder="YOUR NAME" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Helvetica', 'Arial', sans-serif;">
+             <input type="email" name="email" placeholder="YOUR EMAIL" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: 'Helvetica', 'Arial', sans-serif;">
+             <textarea name="message" placeholder="YOUR MESSAGE" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; rows: 5; font-family: 'Helvetica', 'Arial', sans-serif;"></textarea>
+             <button type="submit" style="background-color: #00796B; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-family: 'Helvetica', 'Arial', sans-serif; font-weight: 600; letter-spacing: 1px;">SEND MESSAGE</button>
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
