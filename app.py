@@ -286,11 +286,11 @@ if selected == "Skills":
         st.subheader("PROGRAMMING")
         st.code("""
 # Languages
-Python = "Advanced" (Geopandas, Rasterio)
+Python = "Intermediate" (Geopandas, Rasterio)
 JavaScript = "Intermediate" (GEE API)
 
 # Web Development
-Streamlit = "Advanced" (Full-stack Geospatial)
+Streamlit = "Intermediate"
         """, language="python")
         
         st.subheader("SOFT SKILLS")
@@ -337,3 +337,4 @@ if selected == "Contact":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
+
