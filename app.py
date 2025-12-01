@@ -7,7 +7,7 @@ from streamlit_folium import st_folium
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
-    page_title="Nitesh Kumar | I code for non-coder",
+    page_title="Nitesh Kumar",
     page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -71,7 +71,7 @@ with st.sidebar:
     
     st.markdown("## Nitesh Kumar")
     st.markdown("📍 *Mumbai, India*")
-    st.caption("Geospatial Data Scientist | Agri-Tech Specialist")
+    st.caption("I code for non-coder")
     
     # Navigation Menu
     selected = option_menu(
@@ -337,4 +337,5 @@ if selected == "Contact":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
+
 
