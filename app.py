@@ -116,7 +116,7 @@ if selected == "Home":
         st.title("HELLO, I'M NITESH! 👋")
         st.subheader("GEOSPATIAL DATA SCIENTIST")
         st.write("""
-        As a **GIS Analyst** at **SWANSAT (OPC) Pvt Ltd**, I specialize in agricultural remote sensing and automated geospatial pipelines. My work focuses on leveraging **Sentinel-1 (SAR)** and **Sentinel-2** data to monitor crop phenology, estimate biophysical parameters, and support precision agriculture.
+        As a **GIS Analyst** at **SWANSAT (OPC) Pvt Ltd**, I specialize in agricultural remote sensing and automated geospatial pipelines. My work focuses on leveraging **Sentinel-1 (SAR)**, **Sentinel-2**, PRISMA, LANDASAT data to monitor crop phenology, estimate biophysical parameters, and support precision agriculture.
         
         With an M.Tech in Earth System Science and Engineering from **IIT Guwahati** (2024), I combine technical expertise in Python, Google Earth Engine (GEE), and Machine Learning to solve complex environmental challenges.
         
@@ -271,7 +271,7 @@ if selected == "Skills":
         st.markdown("""
         - **Optical Sensors:** Sentinel-2, Landsat (NDVI, NDRE, SAVI)
         - **Microwave/SAR:** Sentinel-1 (Backscatter VV/VH Analysis)
-        - **Advanced Products:** Thermal (LST), Biophysical (LAI, FAPAR), Hyperspectral
+        - **Advanced Products:** Thermal (LST), Biophysical (LAI, FAPAR), PRISMA Hyperspectral Data
         - **Tools:** Google Earth Engine, ArcGIS Pro, QGIS, SNAP
         """)
         
@@ -337,4 +337,5 @@ if selected == "Contact":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
+
 
