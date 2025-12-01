@@ -7,7 +7,7 @@ from streamlit_folium import st_folium
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
-    page_title="Nitesh Kumar",
+    page_title="Nitesh Kumar | Geospatial Data Scientist",
     page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -70,8 +70,8 @@ with st.sidebar:
     # st.image("profile.jpg", width=150) 
     
     st.markdown("## Nitesh Kumar")
-    st.markdown("📍 *Azamgarh U.P., India*")
-    st.caption("I code for non-coder")
+    st.markdown("📍 *Mumbai, India*")
+    st.caption("Geospatial Data Scientist | Agri-Tech Specialist")
     
     # Navigation Menu
     selected = option_menu(
@@ -116,15 +116,15 @@ if selected == "Home":
         st.title("HELLO, I'M NITESH! 👋")
         st.subheader("GEOSPATIAL DATA SCIENTIST")
         st.write("""
-        As a **GIS Analyst** at **SWANSAT (OPC) Pvt Ltd**, I specialize in agricultural remote sensing and automated geospatial pipelines. My work focuses on leveraging **Sentinel-1 (SAR)** and **Sentinel-2** data to monitor crop phenology, estimate biophysical parameters, and support precision agriculture.
+        As a **GIS Analyst** at **SWANSAT (OPC) Pvt Ltd**, I specialize in high-precision agricultural remote sensing. My work bridges the gap between satellite data and actionable agronomic insights, utilizing multi-resolution datasets ranging from **Sentinel-1/2** and **Landsat** to commercial **PlanetScope (3m)** and **Constellr thermal** imagery.
         
         With an M.Tech in Earth System Science and Engineering from **IIT Guwahati** (2024), I combine technical expertise in Python, Google Earth Engine (GEE), and Machine Learning to solve complex environmental challenges.
         
         My expertise lies in:
-        * 🌾 **Crop Yield Forecasting (ML)**
-        * 📡 **SAR-based Phenology Monitoring**
-        * 🛠️ **Automated ETL Pipelines (GeoFormatX)**
-        * 📊 **Agri-Analytics Dashboards**
+        * 🌾 **Yield Forecasting** (Fusion of Optical, SAR & Thermal)
+        * 🛰️ **High-Res Analytics** (PlanetScope 3m & Constellr)
+        * 📡 **Hyperspectral Analysis** (PRISMA)
+        * 🛠️ **Automated ETL Pipelines** (GeoFormatX)
         """)
         
         # Download Resume Button logic
@@ -187,9 +187,9 @@ if selected == "Experience":
     st.markdown("### 🛰️ GIS ANALYST")
     st.caption("SWANSAT (OPC) Pvt Ltd. | Mumbai, India | June 2024 -- Present")
     st.markdown("""
-    * **Crop Phenology Monitoring:** Developed automated pipelines using **Sentinel-1 SAR backscatter (VV/VH)** to track growth stages in cloud-prone regions.
-    * **Biophysical Parameter Extraction:** Designed algorithms for retrieving LAI, FAPAR, and Vegetation Indices (NDVI, NDRE) using Sentinel-2/Landsat.
-    * **Soil Moisture Analysis:** Implemented microwave remote sensing workflows to support irrigation scheduling and drought stress detection.
+    * **Multi-Sensor Fusion:** Integrated **Sentinel-1 (SAR)**, **Sentinel-2**, and **PlanetScope (3m)** imagery to track crop phenology in high detail.
+    * **Thermal Analysis:** Utilized **Constellr thermal data** for precise water stress detection and irrigation scheduling.
+    * **Biophysical Parameter Extraction:** Designed algorithms for retrieving LAI, FAPAR, and Vegetation Indices (NDVI, NDRE) using Sentinel-2 and Landsat.
     * **Yield Validation:** Collaborated with agronomy teams to validate satellite proxies against ground-truth harvest data.
     """)
     st.divider()
@@ -232,7 +232,6 @@ if selected == "Projects":
             Serverless ETL web application for automated vector data conversion.
             * **Format Conversion:** Seamlessly converts between Shapefile, GeoJSON, and KML.
             * **CRS Handling:** Solves reprojection issues for precision agriculture tools.
-            * **Integration:** Ensures interoperability between legacy cadastral maps and modern GIS.
             """)
         with col2:
             st.link_button("LAUNCH APP 🚀", "https://geoformatx.streamlit.app/")
@@ -244,19 +243,21 @@ if selected == "Projects":
     
     with col1:
         with st.expander("🌾 ML-Based Crop Yield Forecasting (2025)", expanded=True):
+            st.info("**Key Sensors:** PlanetScope (3m), Constellr Thermal, Sentinel-1/2")
             st.write("""
-            * **Tech:** Random Forest, XGBoost, Sentinel-1/2.
-            * **Objective:** Crop yield estimation using spectral signatures.
-            * **Innovation:** Classification pipelines to differentiate Wheat vs. Barley based on phenological signatures.
-            * **Result:** Achieved **85%+ accuracy** in pre-harvest yield prediction.
+            * **Objective:** High-precision crop yield estimation using spectral signatures.
+            * **Innovation:** Integrated high-res **PlanetScope** data for field-level granularity and **Constellr thermal** data for precise water stress indicators.
+            * **Tech:** Random Forest, XGBoost, Multi-sensor Fusion.
+            * **Result:** Achieved **85%+ accuracy** in pre-harvest yield prediction by combining SAR backscatter (S1) with optical/thermal indices.
             """)
             
     with col2:
         with st.expander("🛢️ MTP: Environmental Risk Assessment (2024)", expanded=True):
+            st.info("**Key Sensors:** PRISMA (Hyperspectral), Sentinel-2")
             st.write("""
-            * **Tech:** Hyperspectral (PRISMA), SVM, Random Forest.
             * **Objective:** Detection of hydrocarbon microseepage in Northeast India.
-            * **Outcome:** Utilized narrow-band spectral analysis for identifying stress markers in vegetation.
+            * **Tech:** Hyperspectral Unmixing, SVM, Random Forest.
+            * **Outcome:** Utilized **PRISMA hyperspectral** data to identify specific narrow-band stress markers in vegetation caused by gas seepage.
             * **Publication:** Presented at *EGU General Assembly 2024*.
             """)
 
@@ -267,18 +268,19 @@ if selected == "Skills":
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("REMOTE SENSING & GIS")
+        st.subheader("SENSORS & DATA")
         st.markdown("""
-        - **Optical Sensors:** Sentinel-2, Landsat (NDVI, NDRE, SAVI)
-        - **Microwave/SAR:** Sentinel-1 (Backscatter VV/VH Analysis)
-        - **Advanced Products:** Thermal (LST), Biophysical (LAI, FAPAR), Hyperspectral
-        - **Tools:** Google Earth Engine, ArcGIS Pro, QGIS, SNAP
+        - **High-Resolution:** PlanetScope (3m)
+        - **Thermal:** Constellr, Landsat TIRS
+        - **Hyperspectral:** PRISMA (ASI)
+        - **SAR:** Sentinel-1 (C-band VV/VH Backscatter)
+        - **Optical:** Sentinel-2, Landsat 8/9 (NDVI, NDRE, SAVI)
         """)
         
         st.subheader("DATA SCIENCE & ML")
         st.markdown("""
-        - **Algorithms:** Random Forest, XGBoost, SVM, Regression
-        - **Techniques:** Time-Series Classification (DTW), Yield Modeling
+        - **Algorithms:** Random Forest, XGBoost, SVM
+        - **Techniques:** Sensor Fusion, Time-Series (DTW), Yield Modeling
         - **Libraries:** Scikit-learn, Pandas, NumPy, Rasterio
         """)
 
@@ -337,6 +339,3 @@ if selected == "Contact":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
-
-
-
