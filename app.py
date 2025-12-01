@@ -70,7 +70,7 @@ with st.sidebar:
     # st.image("profile.jpg", width=150) 
     
     st.markdown("## Nitesh Kumar")
-    st.markdown("📍 *Mumbai, India*")
+    st.markdown("📍 *Azamgarh U.P., India*")
     st.caption("I code for non-coder")
     
     # Navigation Menu
@@ -337,5 +337,6 @@ if selected == "Contact":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
+
 
 
