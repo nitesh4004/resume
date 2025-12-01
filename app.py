@@ -33,7 +33,7 @@ st.markdown("""
     p, div, li, .stMarkdown {
         font-family: 'Helvetica', 'Arial', sans-serif;
         font-weight: 400;
-        font-size: 1.05rem; /* Adjusted slightly for sans-serif */
+        font-size: 1.05rem; 
     }
 
     /* Button Styling */
@@ -56,15 +56,6 @@ st.markdown("""
         padding-bottom: 2rem;
     }
     
-    /* Timeline dots (custom class if used later) */
-    .timeline-dot {
-        height: 15px;
-        width: 15px;
-        background-color: #00796B; /* Teal */
-        border-radius: 50%;
-        display: inline-block;
-    }
-    
     /* Profile Image styling */
     img {
         border-radius: 50%; 
@@ -75,14 +66,14 @@ st.markdown("""
 
 # --- SIDEBAR ---
 with st.sidebar:
-    # Placeholder for profile image
+    # Placeholder for profile image - You can uncomment if you have a file
     # st.image("profile.jpg", width=150) 
     
     st.markdown("## Nitesh Kumar")
     st.markdown("📍 *Mumbai, India*")
-    st.caption("Geospatial Data Scientist | Civil Engineer")
+    st.caption("Geospatial Data Scientist | Agri-Tech Specialist")
     
-    # Navigation Menu - COLOR UPDATED to Dark Theme
+    # Navigation Menu
     selected = option_menu(
         menu_title=None,
         options=["Home", "Experience", "Projects", "Skills", "Education", "Contact"],
@@ -92,22 +83,21 @@ with st.sidebar:
         styles={
             "container": {
                 "padding": "0!important", 
-                "background-color": "#262730" # Dark Charcoal Background
+                "background-color": "#262730"
             },
             "icon": {
-                "color": "#4DB6AC", # Lighter Teal for better contrast
+                "color": "#4DB6AC",
                 "font-size": "18px"
             }, 
             "nav-link": {
-                "font-family": "Helvetica, Arial, sans-serif", # UPDATED FONT
+                "font-family": "Helvetica, Arial, sans-serif",
                 "font-size": "16px", 
                 "text-align": "left", 
                 "margin":"0px", 
                 "color": "white", 
-                "--hover-color": "#383940" 
             },
             "nav-link-selected": {
-                "background-color": "#00796B" # Signature Teal
+                "background-color": "#00796B"
             }, 
         }
     )
@@ -126,14 +116,15 @@ if selected == "Home":
         st.title("HELLO, I'M NITESH! 👋")
         st.subheader("GEOSPATIAL DATA SCIENTIST")
         st.write("""
-        As a GIS professional at Swan Corp, I focus on developing advanced methodologies for environmental change detection, agrotechnology applications, and landslide monitoring. My work includes leveraging GIS tools and Synthetic Aperture Radar (SAR) data to enhance crop yield predictions and improve early warning systems for risk assessment.  With an MTech in ESSE (Remote Sensing & GIS) from the IIT Guwahati (2024) and a BTech in Civil Engineering from REC Ambedkar Nagar, I combine technical expertise in GIS, deep learning, and crop monitoring to address environmental challenges. My goal is to contribute to impactful projects that harness data to promote sustainable environmental solutions. 
+        As a **GIS Analyst** at **SWANSAT (OPC) Pvt Ltd**, I specialize in agricultural remote sensing and automated geospatial pipelines. My work focuses on leveraging **Sentinel-1 (SAR)** and **Sentinel-2** data to monitor crop phenology, estimate biophysical parameters, and support precision agriculture.
+        
+        With an M.Tech in Earth System Science and Engineering from **IIT Guwahati** (2024), I combine technical expertise in Python, Google Earth Engine (GEE), and Machine Learning to solve complex environmental challenges.
         
         My expertise lies in:
-        * 🌊 **Hydrodynamic Flood Modelling**
         * 🌾 **Crop Yield Forecasting (ML)**
-        * 🛰️ **Automated Satellite Pipelines (GEE)**
-        
-        Currently working as a **GIS Analyst** at SWANSAT, focusing on SAR-based flood analytics.
+        * 📡 **SAR-based Phenology Monitoring**
+        * 🛠️ **Automated ETL Pipelines (GeoFormatX)**
+        * 📊 **Agri-Analytics Dashboards**
         """)
         
         # Download Resume Button logic
@@ -145,7 +136,7 @@ if selected == "Home":
             file_name = "Nitesh_Kumar_Resume.pdf"
             file_mime = "application/pdf"
         except FileNotFoundError:
-            # Fallback if resume not found
+            # Fallback
             with open("app.py", "rb") as file:
                 file_data = file.read()
             btn_label = "📄 DOWNLOAD SOURCE CODE (DEMO)"
@@ -161,7 +152,7 @@ if selected == "Home":
 
     with col2:
         # Interactive Folium Map
-        m = folium.Map(location=[23.5937, 78.9629], zoom_start=4, tiles="CartoDB positron")
+        m = folium.Map(location=[22.5937, 78.9629], zoom_start=4, tiles="CartoDB positron")
         
         # IIT Guwahati
         folium.Marker(
@@ -196,37 +187,55 @@ if selected == "Experience":
     st.markdown("### 🛰️ GIS ANALYST")
     st.caption("SWANSAT (OPC) Pvt Ltd. | Mumbai, India | June 2024 -- Present")
     st.markdown("""
-    * **Architected flood workflows:** Used Sentinel-1 SAR & SRTM DEM in Google Earth Engine (GEE).
-    * **Flood Susceptibility:** Designed models using terrain analytics and hydrodynamic interpretations.
-    * **Automation:** Built pipelines for surface water extent extraction and change detection.
+    * **Crop Phenology Monitoring:** Developed automated pipelines using **Sentinel-1 SAR backscatter (VV/VH)** to track growth stages in cloud-prone regions.
+    * **Biophysical Parameter Extraction:** Designed algorithms for retrieving LAI, FAPAR, and Vegetation Indices (NDVI, NDRE) using Sentinel-2/Landsat.
+    * **Soil Moisture Analysis:** Implemented microwave remote sensing workflows to support irrigation scheduling and drought stress detection.
+    * **Yield Validation:** Collaborated with agronomy teams to validate satellite proxies against ground-truth harvest data.
     """)
     st.divider()
     
     st.markdown("### 🎓 TEACHING ASSISTANT")
     st.caption("IIT Guwahati | Assam, India | Jan 2023 -- May 2024")
     st.markdown("""
-    * Assisted postgraduate courses in **GIS and Hydrological Modelling**.
-    * Focused on DEM hydrology, drainage extraction, and soil-vegetation-water interactions.
+    * Assisted postgraduate courses in **GIS and Environmental Modelling**.
+    * Focused on terrain analysis for agriculture, soil spatial variability, and land-use classification workflows.
     """)
 
 # --- SECTION: PROJECTS ---
 if selected == "Projects":
     st.title("🚀 KEY PROJECTS")
     
-    # Featured Project
+    # Featured Project 1
     with st.container():
-        st.subheader("🌟 GEOSPATIAL Ni30: REAL-TIME ANALYTICS ENGINE")
+        st.subheader("🌟 GEOSPATIAL Ni30: AGRI-ANALYTICS ENGINE")
         col1, col2 = st.columns([3, 1])
         with col1:
             st.write("**Tech Stack:** Python, Streamlit, GEE API")
             st.write("""
-            A full-stack geospatial web app to democratize access to Sentinel-1, Sentinel-2, and Landsat 8/9.
-            * Implemented backend algorithms for **Land Surface Temperature (LST)** retrieval.
-            * Custom dynamic band math calculator.
-            * Automated GeoTIFF export pipelines.
+            A full-stack geospatial web app to democratize access to agricultural satellite data.
+            * **Real-time Monitoring:** Backend algorithms for Vegetation Health Index (VHI) and LST retrieval.
+            * **Farm ROI:** Automated KML parsing and time-series charting of crop growth cycles.
+            * **Heat Stress:** LST analysis for crop health reporting.
             """)
         with col2:
             st.link_button("LAUNCH APP 🚀", "https://niteshgulzar.streamlit.app/")
+
+    st.divider()
+
+    # Featured Project 2
+    with st.container():
+        st.subheader("🔄 geoFormatX: VECTOR INTEROPERABILITY ENGINE")
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.write("**Tech Stack:** Python, Streamlit, Geopandas")
+            st.write("""
+            Serverless ETL web application for automated vector data conversion.
+            * **Format Conversion:** Seamlessly converts between Shapefile, GeoJSON, and KML.
+            * **CRS Handling:** Solves reprojection issues for precision agriculture tools.
+            * **Integration:** Ensures interoperability between legacy cadastral maps and modern GIS.
+            """)
+        with col2:
+            st.link_button("LAUNCH APP 🚀", "https://geoformatx.streamlit.app/")
             
     st.divider()
     
@@ -236,31 +245,19 @@ if selected == "Projects":
     with col1:
         with st.expander("🌾 ML-Based Crop Yield Forecasting (2025)", expanded=True):
             st.write("""
-            * **Goal:** Spectral signature extraction for yield estimation.
-            * **Data:** Optical (Sentinel-2), Thermal (ConstellR), SAR (Sentinel-1).
-            * **Method:** Classification and regression pipelines validated with ground truth.
+            * **Tech:** Random Forest, XGBoost, Sentinel-1/2.
+            * **Objective:** Crop yield estimation using spectral signatures.
+            * **Innovation:** Classification pipelines to differentiate Wheat vs. Barley based on phenological signatures.
+            * **Result:** Achieved **85%+ accuracy** in pre-harvest yield prediction.
             """)
             
-        with st.expander("💧 Hydrodynamic Flood Modelling (2025)"):
-            st.write("""
-            * **Goal:** 1D-2D floodplain dynamics simulation.
-            * **Method:** Estimated inundation depth using Sentinel-1 water extent and SRTM terrain data.
-            * **Outcome:** Validated hazard maps integrated with land use layers.
-            """)
-
     with col2:
-        with st.expander("🏔️ Cloudburst Flood Analysis - Uttarakhand (2023)", expanded=True):
+        with st.expander("🛢️ MTP: Environmental Risk Assessment (2024)", expanded=True):
             st.write("""
-            * **Goal:** Post-event flood extent and debris flow mapping.
-            * **Data:** Sentinel-1 and ASTER DEM in GEE.
-            * **Outcome:** Flood depth rasters and terrain risk zone maps.
-            """)
-            
-        with st.expander("🛢️ MTP: Hydrocarbon Microseepage Detection (2024)"):
-            st.write("""
-            * **Goal:** Environmental risk assessment.
-            * **Algorithms:** Random Forest and SVM on Hyperspectral (PRISMA) data.
-            * **Publication:** Presented at EGU General Assembly 2024.
+            * **Tech:** Hyperspectral (PRISMA), SVM, Random Forest.
+            * **Objective:** Detection of hydrocarbon microseepage in Northeast India.
+            * **Outcome:** Utilized narrow-band spectral analysis for identifying stress markers in vegetation.
+            * **Publication:** Presented at *EGU General Assembly 2024*.
             """)
 
 # --- SECTION: SKILLS ---
@@ -270,34 +267,35 @@ if selected == "Skills":
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("GEOSPATIAL & REMOTE SENSING")
+        st.subheader("REMOTE SENSING & GIS")
         st.markdown("""
-        - **Data:** Sentinel-1/2, Landsat, DEM, Thermal, Hyperspectral (PRISMA)
-        - **Analysis:** Google Earth Engine (JS/Python), ArcPy, GDAL/Rasterio
-        - **Software:** ArcGIS Pro, QGIS, ENVI, SNAP
+        - **Optical Sensors:** Sentinel-2, Landsat (NDVI, NDRE, SAVI)
+        - **Microwave/SAR:** Sentinel-1 (Backscatter VV/VH Analysis)
+        - **Advanced Products:** Thermal (LST), Biophysical (LAI, FAPAR), Hyperspectral
+        - **Tools:** Google Earth Engine, ArcGIS Pro, QGIS, SNAP
         """)
         
         st.subheader("DATA SCIENCE & ML")
         st.markdown("""
-        - **Algorithms:** Random Forest, SVM, CNNs, Regression
-        - **Libraries:** Scikit-learn, Pandas, NumPy, Matplotlib
+        - **Algorithms:** Random Forest, XGBoost, SVM, Regression
+        - **Techniques:** Time-Series Classification (DTW), Yield Modeling
+        - **Libraries:** Scikit-learn, Pandas, NumPy, Rasterio
         """)
 
     with col2:
-        st.subheader("PROGRAMMING & WEB")
+        st.subheader("PROGRAMMING")
         st.code("""
 # Languages
-Python = "Advanced"
-JavaScript = "Intermediate"
-SQL = "Intermediate"
+Python = "Advanced" (Geopandas, Rasterio)
+JavaScript = "Intermediate" (GEE API)
 
-# Web Frameworks
-Streamlit = "Advanced"
+# Web Development
+Streamlit = "Advanced" (Full-stack Geospatial)
         """, language="python")
         
         st.subheader("SOFT SKILLS")
+        st.write("✅ Agronomy Collaboration")
         st.write("✅ Technical Documentation")
-        st.write("✅ Executive Reporting")
         st.write("✅ Research & Validation")
 
 # --- SECTION: EDUCATION ---
@@ -323,12 +321,12 @@ if selected == "Contact":
     col1, col2 = st.columns(2)
     
     with col1:
-        st.write("Feel free to reach out for collaborations on GIS, Remote Sensing, or Machine Learning projects.")
+        st.write("Open for collaborations on Agri-Tech, GIS pipelines, and ML-based Remote Sensing projects.")
         st.markdown("📧 **Email:** [nitesh.gulzar@gmail.com](mailto:nitesh.gulzar@gmail.com)")
         st.markdown("💼 **LinkedIn:** [linkedin.com/in/nitesh4004](https://linkedin.com/in/nitesh4004)")
+        st.markdown("🐙 **GitHub:** [github.com/nitesh4004](https://github.com/nitesh4004)")
         
     with col2:
-        # Updated Font in the HTML Form to Helvetica
         contact_form = """
         <form action="https://formsubmit.co/nitesh.gulzar@gmail.com" method="POST">
              <input type="hidden" name="_captcha" value="false">
