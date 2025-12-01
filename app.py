@@ -7,7 +7,7 @@ from streamlit_folium import st_folium
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
-    page_title="Nitesh Kumar | Geospatial Data Scientist",
+    page_title="Nitesh Kumar | I code for non-coder",
     page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -337,3 +337,4 @@ if selected == "Contact":
         </form>
         """
         st.markdown(contact_form, unsafe_allow_html=True)
+
