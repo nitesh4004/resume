@@ -66,7 +66,7 @@ st.markdown("""
 
 # --- SIDEBAR ---
 with st.sidebar:
-    # Placeholder for profile image
+    # Placeholder for profile image - Uncomment if you have an image file
     # st.image("profile.jpg", width=150) 
     
     st.markdown("## Nitesh Kumar")
@@ -116,14 +116,14 @@ if selected == "Home":
         st.title("HELLO, I'M NITESH! 👋")
         st.subheader("GEOSPATIAL DATA SCIENTIST")
         st.write("""
-        [cite_start]As a **GIS Analyst** at **SWANSAT (OPC) Pvt Ltd**, I specialize in agricultural remote sensing and automated geospatial pipelines. My work focuses on leveraging multi-sensor data—including **Sentinel**, **ConstellR (Thermal)**, and **PlanetScope**—to monitor crop phenology and estimate biophysical parameters[cite: 16, 17].
+        [cite_start]As a **GIS Analyst** at **SWANSAT (OPC) Pvt Ltd**, I specialize in agricultural remote sensing and automated geospatial pipelines[cite: 11, 12, 16]. [cite_start]My work focuses on leveraging multi-sensor data—including **Sentinel**, **ConstellR (Thermal)**, and **PlanetScope (3m)**—to monitor crop phenology and estimate biophysical parameters[cite: 16, 17].
         
-        [cite_start]With an M.Tech in Earth System Science and Engineering from **IIT Guwahati** (2024), I combine technical expertise in Python, Google Earth Engine (GEE), and Machine Learning to solve complex environmental challenges[cite: 4, 5].
+        [cite_start]With an M.Tech in Earth System Science and Engineering from **IIT Guwahati** (2024), I combine technical expertise in Python, Google Earth Engine (GEE), and Machine Learning to solve complex environmental challenges[cite: 4, 5, 28, 38].
         
         My expertise lies in:
         * 🌾 **Crop Yield Forecasting (ML)**
         * 🌡️ **Thermal & Hyperspectral Analysis**
-        * 🛠️ **Automated ETL Pipelines (GeoFormatX)**
+        * 🛠️ **Automated ETL Pipelines (geoFormatX)**
         * 📊 **Agri-Analytics Dashboards**
         """)
         
@@ -136,7 +136,7 @@ if selected == "Home":
             file_name = "Nitesh_Kumar_Resume.pdf"
             file_mime = "application/pdf"
         except FileNotFoundError:
-            # Fallback
+            # Fallback if resume file is missing locally
             with open("app.py", "rb") as file:
                 file_data = file.read()
             btn_label = "📄 DOWNLOAD SOURCE CODE (DEMO)"
@@ -185,17 +185,17 @@ if selected == "Experience":
     st.title("💼 PROFESSIONAL EXPERIENCE")
     
     st.markdown("### 🛰️ GIS ANALYST")
-    st.caption("SWANSAT (OPC) Pvt Ltd. | Mumbai, India | [cite_start]June 2024 -- Present [cite: 11, 12]")
+    st.caption("SWANSAT (OPC) Pvt Ltd. | Mumbai, India | June 2024 -- Present")
     st.markdown("""
     * [cite_start]**Crop Phenology Monitoring:** Developed automated pipelines using **Sentinel-1 SAR backscatter (VV/VH)** to track growth stages in cloud-prone regions[cite: 16].
-    * [cite_start]**Biophysical Parameter Extraction:** Designed algorithms for retrieving LAI, FAPAR, and Vegetation Indices (NDVI, NDRE) using Sentinel-2/Landsat imagery[cite: 17].
+    * [cite_start]**Biophysical Parameter Extraction:** Designed algorithms for retrieving LAI, FAPAR, and Vegetation Indices (NDVI, NDRE) using Sentinel-2 and Landsat imagery[cite: 17].
     * [cite_start]**Soil Moisture Analysis:** Implemented microwave remote sensing workflows to support irrigation scheduling and drought stress detection[cite: 18].
     * [cite_start]**Yield Validation:** Collaborated with agronomy teams to validate satellite proxies against ground-truth harvest data[cite: 19].
     """)
     st.divider()
     
     st.markdown("### 🎓 TEACHING ASSISTANT")
-    [cite_start]st.caption("IIT Guwahati | Assam, India | Jan 2023 -- May 2024 [cite: 20, 21]")
+    st.caption("IIT Guwahati | Assam, India | Jan 2023 -- May 2024")
     st.markdown("""
     * [cite_start]Assisted postgraduate courses in **GIS and Environmental Modelling**[cite: 23].
     * [cite_start]Focused on terrain analysis for agriculture, soil spatial variability, and land-use classification workflows[cite: 23].
@@ -210,10 +210,10 @@ if selected == "Projects":
         st.subheader("🌟 GEOSPATIAL Ni30: AGRI-ANALYTICS ENGINE")
         col1, col2 = st.columns([3, 1])
         with col1:
-            st.write("**Tech Stack:** Python, Streamlit, GEE API")
+            [cite_start]st.write("**Tech Stack:** Python, Streamlit, GEE API [cite: 25]")
             st.write("""
             [cite_start]A full-stack geospatial web app to democratize access to agricultural satellite data[cite: 28].
-            * [cite_start]**Real-time Monitoring:** Backend algorithms for Vegetation Health Index (VHI) and LST retrieval[cite: 29].
+            * [cite_start]**Real-time Monitoring:** Backend algorithms for Vegetation Health Index (VHI) and LST retrieval for heat stress analysis[cite: 29].
             * [cite_start]**Farm ROI:** Automated KML parsing and time-series charting of crop growth cycles[cite: 30].
             * **Data Integration:** Scalable ingestion of Sentinel and PlanetScope imagery.
             """)
@@ -227,7 +227,7 @@ if selected == "Projects":
         st.subheader("🔄 geoFormatX: VECTOR INTEROPERABILITY ENGINE")
         col1, col2 = st.columns([3, 1])
         with col1:
-            st.write("**Tech Stack:** Python, Streamlit, Geopandas")
+            [cite_start]st.write("**Tech Stack:** Python, Streamlit, Geopandas [cite: 31]")
             st.write("""
             [cite_start]Serverless ETL web application for automated vector data conversion[cite: 33].
             * [cite_start]**Format Conversion:** Seamlessly converts between Shapefile, GeoJSON, and KML formats[cite: 33].
@@ -247,7 +247,7 @@ if selected == "Projects":
             st.write("""
             * [cite_start]**Data Sources:** **PlanetScope (3m)**, **ConstellR (Thermal)**, Sentinel-1/2[cite: 38].
             * [cite_start]**Objective:** Crop yield estimation using multi-sensor spectral signatures[cite: 38].
-            * [cite_start]**Innovation:** Classification pipelines to differentiate Wheat vs. Barley based on phenological signatures[cite: 39].
+            * [cite_start]**Innovation:** Classification pipelines to differentiate similar crop types (e.g., Wheat vs. Barley)[cite: 39].
             * [cite_start]**Result:** Achieved **85%+ accuracy** in pre-harvest yield prediction[cite: 40].
             """)
             
@@ -269,18 +269,18 @@ if selected == "Skills":
     with col1:
         st.subheader("REMOTE SENSING & GIS")
         st.markdown("""
-        - **High-Res Optical:** **PlanetScope (3m)**, Sentinel-2, Landsat
-        - **Thermal:** **ConstellR**, Landsat (LST)
-        - [cite_start]**Hyperspectral:** **PRISMA** [cite: 43]
-        - [cite_start]**Microwave/SAR:** Sentinel-1 (Backscatter VV/VH Analysis) [cite: 16]
-        - [cite_start]**Tools:** Google Earth Engine, ArcGIS Pro, QGIS, SNAP [cite: 53]
+        - [cite_start]**High-Res Optical:** **PlanetScope (3m)**, Sentinel-2, Landsat (NDVI, NDRE, SAVI)[cite: 50].
+        - [cite_start]**Thermal:** **ConstellR**, Landsat (LST)[cite: 50].
+        - [cite_start]**Hyperspectral:** **PRISMA**[cite: 43].
+        - [cite_start]**Microwave/SAR:** Sentinel-1 (Backscatter VV/VH Analysis)[cite: 50].
+        - [cite_start]**Tools:** Google Earth Engine, ArcGIS Pro, QGIS, SNAP[cite: 53].
         """)
         
         st.subheader("DATA SCIENCE & ML")
         st.markdown("""
-        - [cite_start]**Algorithms:** Random Forest, XGBoost, SVM, Regression [cite: 38, 52]
-        - [cite_start]**Techniques:** Time-Series Classification (DTW), Yield Modeling [cite: 52]
-        - [cite_start]**Libraries:** Scikit-learn, Pandas, NumPy, Rasterio [cite: 51]
+        - [cite_start]**Algorithms:** Random Forest, XGBoost, SVM, Regression[cite: 52].
+        - [cite_start]**Techniques:** Time-Series Classification (DTW), Yield Modeling[cite: 52].
+        - [cite_start]**Libraries:** Scikit-learn, Pandas, NumPy, Rasterio[cite: 51].
         """)
 
     with col2:
@@ -297,21 +297,21 @@ Streamlit = "Advanced" (Full-stack Geospatial)
         st.subheader("SOFT SKILLS")
         [cite_start]st.write("✅ Agronomy Collaboration [cite: 19]")
         st.write("✅ Technical Documentation")
-        st.write("✅ Research & Validation")
+        [cite_start]st.write("✅ Research & Validation [cite: 19]")
 
 # --- SECTION: EDUCATION ---
 if selected == "Education":
     st.title("🎓 EDUCATION")
     
     st.subheader("M.TECH IN EARTH SYSTEM SCIENCE AND ENGINEERING")
-    [cite_start]st.write("**Indian Institute of Technology Guwahati** | 2022 -- 2024 [cite: 4, 22]")
+    st.write("**Indian Institute of Technology Guwahati** | 2022 -- 2024")
     st.write("📍 *Assam, India*")
     [cite_start]st.info("CGPA: **8.9/10** [cite: 6]")
     
     st.markdown("---")
     
     st.subheader("B.TECH IN CIVIL ENGINEERING")
-    [cite_start]st.write("**Rajkiya Engineering College** | 2018 -- 2022 [cite: 7, 14]")
+    st.write("**Rajkiya Engineering College** | 2018 -- 2022")
     st.write("📍 *Ambedkar Nagar, U.P.*")
     [cite_start]st.info("CGPA: **7.93/10** [cite: 9]")
 
